@@ -1,0 +1,13 @@
+<div class="class">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class=updateprofile>Update Your Profile</div> <br>
+			<%= form_for @user, method: :patch do |f| %>
+			  <%= f.text_field :username, placeholder: "Username" %><br>
+				<%= f.email_field :email, class: "form-control", :placeholder => "Email" %><br>
+			  <%= f.file_field :avatar %>
+			  <%= f.submit "Save Changes", class: "btn btn-primary" %>
+			<% end %>
+		</div>
+	</div>
+</div>
