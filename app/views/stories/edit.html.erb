@@ -1,0 +1,6 @@
+<h1>Edit Story</h1>
+<%= form_for @story do |f| %>
+	<%= f.text_field :name, placeholder: "Story Name" %>
+	<%= f.text_field :description, placeholder: "Description" %>
+	<%= f.submit "Save Changes" %>
+<% end %>

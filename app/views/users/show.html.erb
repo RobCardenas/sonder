@@ -1,4 +1,12 @@
 <h1>Profile</h1>
-Welcome <%= current_user.email %>
+Welcome <%= current_user.username %>
 
-<p><%= current_user.stories %></p>
+<% if current_user.stories.any? %>
+	Your Stories
+	<% current_user.stories.each do |story| %>
+		<%= story.name %><br>
+		<%= story.description %>
+	<% end %>
+<% else %>
+	<%= link_to "Add a Story", new_story_path %>
+<% end %>

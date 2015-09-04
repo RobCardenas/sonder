@@ -1,0 +1,6 @@
+<h1><%= @story.name %></h1>
+<p><%= @story.description %></p>
+
+<% if current_user && current_user.stories.include?(@story) %>
+	<%= link_to "Edit Story", edit_story_path(@story)  %>
+<% end %>
