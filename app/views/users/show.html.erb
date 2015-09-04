@@ -1,5 +1,6 @@
 <h1>Profile</h1>
 Welcome <%= current_user.username %>
+<%= image_tag @user.avatar.url(:medium) %>
 
 <% if current_user.stories.any? %>
 	Your Stories
@@ -10,3 +11,4 @@ Welcome <%= current_user.username %>
 <% else %>
 	<%= link_to "Add a Story", new_story_path %>
 <% end %>
+<%= link_to "Edit Profile", edit_user_path(current_user) %>
