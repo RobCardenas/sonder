@@ -1,9 +1,15 @@
-<h1>SONDER</h1>
-<% @stories.each do |story| %>
-	<%= story.name %>
-	<%= story.description %>
-	<%= link_to "View Story", story_path(story) %>
-<% end %>
-<% if current_user %>
-	<%= link_to "Add a Story", new_story_path %>
-<% end %>
+<div class="container">
+	<h1>SONDER</h1>
+	<div class="row">
+		<div class="col-md-3">
+			<% @stories.each do |story| %>
+				<%= story.name %>
+				<%= story.description %>
+				<%= link_to "View Story", story_path(story) %>
+			<% end %>
+			<% if current_user %>
+				<%= link_to "Add a Story", new_story_path %>
+			<% end %>
+		</div>
+	</div>
+</div>

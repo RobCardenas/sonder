@@ -1,6 +1,11 @@
-<h1><%= @story.name %></h1>
-<p><%= @story.description %></p>
-
-<% if current_user && current_user.stories.include?(@story) %>
-	<%= link_to "Edit Story", edit_story_path(@story)  %>
-<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<h1 class="text-center"><%= @story.name %></h1>
+			<p><%= @story.description %></p>
+			<% if current_user && current_user.stories.include?(@story) %>
+				<%= link_to "Edit Story", edit_story_path(@story)  %>
+			<% end %>
+		</div>
+	</div>
+</div>
