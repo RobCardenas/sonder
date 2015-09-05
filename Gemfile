@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 gem 'simple_form', '~> 3.1.0'
 gem "jquery-fileupload-rails"
 gem "paperclip", "~> 4.3"
-gem 'sqlite3'
+# gem 'sqlite3'
 gem 'rmagick'
 gem 'therubyracer'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
