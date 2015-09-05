@@ -1,23 +1,19 @@
 <div class="container">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<input type="hidden" id="storyID" value="<%= @story.id %>"
-			<h1 class="text-center"><%= @story.name %></h1>
-			<p><%= @story.description %></p>
-			<% if current_user && current_user.stories.include?(@story) %>
-				<%= link_to "Edit Story", edit_story_path(@story)  %>
-			<% end %>
-		</div>
-	</div>
-</div>
+
 
 <div class="row">
-  <ul class="thumbnails files">
+  <div class="col-md-8 col-md-offset-2">
+    <input type="hidden" id="storyID" value="<%= @story.id %>">
+      <h1 class="text-center"><%= @story.name %></h1>
+      <p><%= @story.description %></p>
+      <% if current_user && current_user.stories.include?(@story) %>
+        <%= link_to "Edit Story", edit_story_path(@story)  %>
+      <% end %>
+  <ul class="bxslider">
 <% unless @pictures.empty? %>
   <% @pictures.each do |pic| %>
-    <li class="span3" id="picture_<%= pic.id %>">
-    <div class="thumbnail">
-      <%= image_tag pic.image.url(:large) %>
+    <li id="picture_<%= pic.id %>", class: "img-responsive">
+      <%= image_tag pic.image.url(:large), class: "img-responsive" %>
       <div class="caption">
         <p style="text-align: center;">
         <%= link_to "Edit picture", picture_path(pic) %>
@@ -30,9 +26,10 @@
 
         </p>
       </div>
-    </div>
     </li>
   <% end %>
 <% end %>
 </ul>
+</div>
+</div>
 </div>

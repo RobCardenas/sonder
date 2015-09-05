@@ -9,3 +9,8 @@ $(document).ready(function(){
   var m = w - h
   $('.welcome').css("margin-top",m + "px")
 });
+
+// Initializes slider
+$(document).ready(function(){
+  $('.bxslider').bxSlider();
+});

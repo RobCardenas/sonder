@@ -1,6 +1,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bxslider
 //= require bootstrap/dist/js/bootstrap
 //= require pictures
 //= require jquery-fileupload/basic
