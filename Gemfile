@@ -39,7 +39,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 group :production do
-  gem 'rails_12factor'
+  gem 'rails_12factor', group: :production
 end
 
 group :development, :test do
