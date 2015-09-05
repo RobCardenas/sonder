@@ -3,6 +3,8 @@ gem 'simple_form', '~> 3.1.0'
 gem "jquery-fileupload-rails"
 gem "paperclip", "~> 4.3"
 # gem 'sqlite3'
+gem 'aws-sdk', '~> 1.6'
+gem 'dotenv-rails', :groups => [:development, :test]	
 gem 'rmagick'
 gem 'therubyracer'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
