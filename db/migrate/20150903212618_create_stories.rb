@@ -4,7 +4,7 @@ class CreateStories < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.belongs_to :user
-      t.timestamps null: false
+      t.timestamps 
     end
   end
 end

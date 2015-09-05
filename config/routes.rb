@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   # Stories Routes
   resources :stories
+  resources :pictures
 
 end
 
