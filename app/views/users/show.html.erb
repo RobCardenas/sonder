@@ -1,6 +1,6 @@
 <div class="content">
 	<div class="col-md-3">
-		<h2>Welcome <%= current_user.username.titleize %></h2>
+		<h2>Welcome <%= current_user.username %></h2>
 		<%= image_tag @user.avatar.url(:medium) %>
 		<br><%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-default" %>
 	</div>

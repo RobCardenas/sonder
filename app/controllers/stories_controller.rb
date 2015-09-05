@@ -2,22 +2,51 @@ class StoriesController < ApplicationController
   before_filter :authorize, except: [:index, :show]
   def index
     @stories = Story.all
-    render :index
+    # render :index
+
+    respond_to do |format|
+      format.html
+      # format.json { render json: @stories }
+    end
   end
 
   def new
     @story = Story.new
-    render :new
+    # render :new
+    respond_to do |format|
+      format.html
+      format.json { render json: @story }
+    end
   end
 
   def create
-    story = current_user.stories.create(story_params)
-    redirect_to story_path(story)
+    @story = Story.new(story_params)
+    # story = current_user.stories.create(story_params)
+    # redirect_to story_path(story)
+
+    respond_to do |format|
+      if @story.save
+        if params[:images]
+          params[:images].each { |image| 
+            @story.pictures.create(image: image)}
+        end
+        format.html { redirect_to @story }
+        format.json { render json: @story }
+      else
+        format.html { render action: "new"}
+        format.json { render json: @story.error}
+      end
+    end
   end
 
   def show
     @story = Story.find(params[:id])
-    render :show
+    @pictures = @story.pictures
+    # render :show
+    respond_to do |format|
+      format.html
+      format.json { render json: @story }
+    end
   end
 
   def edit
@@ -33,9 +62,17 @@ class StoriesController < ApplicationController
     story = Story.find(params[:id])
     if current_user.stories.include? story
       story.update_attributes(story_params)
+      if params[:images]
+        params[:images].each { |image|
+          @story.pictures.create(image: image)}
       redirect_to story_path(story)
+    end
+      format.html { redirect_to @story }
+      format.json { head :no_content }
     else
+      format.html { render action: "edit" }
       redirect_to profile_path
+    end
     end
   end
 
@@ -52,6 +89,6 @@ class StoriesController < ApplicationController
 
   private
     def story_params
-      params.require(:story).permit(:name, :description)
+      params.require(:story).permit(:name, :description, :pictures)
     end
-end
+# end
