@@ -1,34 +1,28 @@
-<h1>Post a New Story</h1>
-<%= form_for @story, :html => { :class => 'form-horizontal', multipart: true } do |f| %>
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
-    </div>
+<div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 welcome">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Post Your Adventure</h3>
   </div>
+  <div class="panel-body">
+    <%= form_for @story, :html => { class: 'form-horizontal', multipart: true } do |f| %>
   <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :description, :class => 'text_field' %>
-    </div>
+      <%= f.text_field :name, placeholder: "Story Name", class: "form-control" %>
   </div>
-
+  <br>
   <div class="control-group">
-    <%= f.label :pictures, :class => 'control-label' %>
-    <div class="controls">
-      <!-- The magic is coming ...look at my eyes....shazammmm -->
-      <!-- Use HTML5 multiple attribute to enable multiple selection
-           and pass back to controller all files as an array, ready 
-           for paperclip!!
-           file_field_tag, since images is not a gallery attribute
-       -->
+      <%= f.text_field :description, placeholder: "Description", class: "form-control" %>
+  </div>
+  <br>
+  <div class="control-group">
       <%= file_field_tag "images[]", type: :file, multiple: true %>
-    </div>
   </div>
-
+  </div>
+  <div class="panel-footer">
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= f.submit nil, :class => 'btn btn-default' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                stories_path, :class => 'btn btn-mini' %>
+                stories_path, :class => 'btn btn-danger' %>
   </div>
 <% end %>
+  </div>
+</div>

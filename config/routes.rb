@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   # Stories Routes
   resources :stories
+  delete "/stories", to: "stories#destroy"
   resources :pictures
 
 end
