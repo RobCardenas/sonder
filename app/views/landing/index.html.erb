@@ -1,9 +1,33 @@
+<div class="bg-image">
 <div class="container">
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 welcome">
 			<h1>Sonder</h1>
 				<p>n. the realization that each random passerby is living a life as vivid and complex as your own—populated with their own ambitions, friends, routines, worries and inherited craziness—an epic story that continues invisibly around you like an anthill sprawling deep underground, with elaborate passageways to thousands of other lives that you’ll never know existed, in which you might appear only once, as an extra sipping coffee in the background, as a blur of traffic passing on the highway, as a lighted window at dusk.</p>
+				<!-- Modal -->
+<a type="button" data-toggle="modal" data-target="#myModal">
+  <p>Learn More...</p>
+</a>
+
+<!-- Modal -->
+<div class="modal fade welcome" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">What is Sonder?</h4>
+      </div>
+      <div class="modal-body">
+        Glad you asked! Sonder is a place where anybody can tell a story. Share with others your adventures by using text and images or visit the <%= link_to '"Stories"', stories_path %> page and travel the world through the eyes of other Sonderer's.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= link_to "Register", signup_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
 		</div>
 	</div>
+</div>
 </div>
 

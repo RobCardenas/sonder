@@ -1,11 +1,15 @@
+<div class="jumbotron">
+	<h1 class="text-center">STORIES</h1>
+</div>
+<div class="row white">
 <div class="container">
-	<h1>SONDER</h1>
+	
 	<div class="row">
 			<% @stories.each do |story| %>
-		<div class="col-md-4">
+		<div class="col-md-4 col-sm-6 col-xs-12">
 
 			<h2><%= story.name.titleize %></h2>
-			<%= image_tag story.pictures.first.image(:medium).to_s, class: "img-responsive" %>
+			<%= image_tag story.pictures.first.image(:large).to_s, class: "img-responsive" %>
 			<%= link_to "View Story", story_path(story) %>
 		</div>
 			<% end %>
@@ -16,4 +20,5 @@
 		<%= link_to "Add a Story", new_story_path %>
 		<% end %>
 	</div>
+</div>
 </div>

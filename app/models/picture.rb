@@ -3,7 +3,7 @@ class Picture < ActiveRecord::Base
 	belongs_to :story
 
 	has_attached_file :image,
-                   	:styles => { :large => "800x400>", :medium => "400x200>", :thumb => "100x50>" },
+                   	:styles => { :large => "1000x500#", :medium => "500x250#", :thumb => "200x100#" },
 	                 	:path => "images/:id/:style/image.:extension",
   									:storage => :s3,
   									:s3_credentials => Proc.new { |a| a.instance.s3_credentials },

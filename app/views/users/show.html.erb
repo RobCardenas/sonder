@@ -1,20 +1,22 @@
-<div class="container">
-	<div class="col-md-3">
-		<h2>Welcome <%= current_user.username %></h2>
-		<%= image_tag @user.avatar.url(:medium) %>
-		<br><%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-default" %>
+<div class="jumbotron jumbotron-custom">
+	<div class="text-center">
+		<%= image_tag @user.avatar.url(:medium), class: "img-responsive img-circle" %>
+				<h3>Howdy <%= current_user.username.titleize %></h3>
+
+		<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-default btn-xs" %>
+		<%= link_to "Add a Story", new_story_path, class: "btn btn-default btn-xs" %>
 	</div>
-	<div class="col-md-9">
-		<div class="col-md-6 user-stories">
+</div>
+<div class="container">
+	<div class="col-md-4 user-stories">
 			<% if current_user.stories.any? %>
-			Your Stories
 				<% current_user.stories.each do |story| %>
-				<%= story.name %><br>
+				<%= image_tag story.pictures.first.image(:medium).to_s, class: "img-responsive" %>
+				<%= link_to story.name, story_path(story) %><br>
 				<%= story.description %>
+			</div>
 			<% end %>
 			<% else %>
-				<%= link_to "Add a Story", new_story_path, class: "btn btn-default" %>
+				You haven't posted any stories! 
 			<% end %>
-		</div>
-	</div>
 </div>

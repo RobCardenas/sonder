@@ -87,14 +87,14 @@ class PicturesController < ApplicationController
   # DELETE /pictures/1
   # DELETE /pictures/1.json
   def destroy
-    #@gallery = Gallery.find(params[:gallery_id])
-    #@picture = @gallery.pictures.find(params[:id])
+    # @story = Story.find(params[:story_id])
+    # @picture = @story.pictures.find(params[:id])
     @picture = Picture.find(params[:id])
     @picture.destroy
 
     respond_to do |f|
-      f.html { redirect_to root_path }
-      f.js
+      f.html { redirect_to profile_path }
+      f.json
     end
   end
 
@@ -106,7 +106,7 @@ class PicturesController < ApplicationController
     @story.save
 
     respond_to do |f|
-      f.js
+      f.json
     end
   end
 

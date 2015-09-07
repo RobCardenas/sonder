@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 
 	has_attached_file :avatar,
-	                 	:styles => { :medium => "300x300#", :thumb => "44x44#" },
+	                 	:styles => { :medium => "200x200#", :thumb => "100x100#" },
 	                 	:path => "avatars/:id/:style/avatar.:extension",
   									:default_url => "https://s3.amazonaws.com/sonderr/defaults/default_avatar.png",
   									:storage => :s3,

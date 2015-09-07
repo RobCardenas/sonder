@@ -6,13 +6,12 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       format.html
-      # format.json { render json: @stories }
+      format.json { render json: @stories }
     end
   end
 
   def new
     @story = Story.new
-    # render :new
     respond_to do |format|
       format.html
       format.json { render json: @story }
@@ -20,18 +19,18 @@ class StoriesController < ApplicationController
   end
 
   def create
-    @story = Story.new(story_params)
-    # story = current_user.stories.create(story_params)
+    # @story = Story.new(story_params)
+    story = current_user.stories.create(story_params)
     # redirect_to story_path(story)
 
     respond_to do |format|
-      if @story.save
+      if story.save
         if params[:images]
-          params[:images].each { |image| 
-            @story.pictures.create(image: image)}
+           params[:images].each { |image| 
+           story.pictures.create(image: image)}
         end
-        format.html { redirect_to @story }
-        format.json { render json: @story }
+        format.html { redirect_to story }
+        format.json { render json: story }
       else
         format.html { render action: "new"}
         format.json { render json: @story.error}
@@ -42,7 +41,6 @@ class StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
     @pictures = @story.pictures
-    # render :show
     respond_to do |format|
       format.html
       format.json { render json: @story }
@@ -65,10 +63,10 @@ class StoriesController < ApplicationController
       if params[:images]
         params[:images].each { |image|
           @story.pictures.create(image: image)}
-      redirect_to story_path(story)
+      redirect_to story_path(story.id)
     end
-      format.html { redirect_to @story }
-      format.json { head :no_content }
+      # format.html { redirect_to story }
+      # format.json { head :no_content }
     else
       format.html { render action: "edit" }
       redirect_to profile_path
@@ -81,6 +79,9 @@ class StoriesController < ApplicationController
     if current_user.stories.include? story
       story.destroy
       redirect_to profile_path
+      respond_to do |format|
+        format.json {head :no_content}
+      end
     else
       session[:user_id] = nil
       redirect_to login_path
