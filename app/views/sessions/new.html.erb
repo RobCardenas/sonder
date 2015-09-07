@@ -1,6 +1,21 @@
-<h1>Login</h1>
-<%= form_for :user, url: sessions_path do |f| %>
-	<%= f.email_field :email, placeholder: "Email" %>
-	<%= f.password_field :password, placeholder: "Password" %>
-	<%= f.submit "Login" %>
-<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 welcome">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="panel-title">Login</div>
+				</div>
+				<div class="panel-body">
+					<%= form_for :user, url: sessions_path do |f| %>
+					<%= f.email_field :email, placeholder: "Email", class: "form-control" %><br>
+					<%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+				</div>
+				<div class="panel-footer">
+					<%= f.submit "Submit", class: "btn btn-default" %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

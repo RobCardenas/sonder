@@ -7,15 +7,16 @@
 		<%= link_to "Add a Story", new_story_path, class: "btn btn-default btn-xs" %>
 	</div>
 </div>
-<div class="container">
-	<div class="col-md-4 user-stories">
+<div class="container user-stories">
+	
 			<% if current_user.stories.any? %>
 				<% current_user.stories.each do |story| %>
-				<%= image_tag story.pictures.first.image(:medium).to_s, class: "img-responsive" %>
+				<div class="col-md-4">
+				<%= link_to image_tag(story.pictures.first.image(:medium).to_s, class: "img-responsive"), story_path(story) %>
 				<%= link_to story.name, story_path(story) %><br>
-				<%= story.description %>
 			</div>
 			<% end %>
+		</div>
 			<% else %>
 				You haven't posted any stories! 
 			<% end %>
