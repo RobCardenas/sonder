@@ -6,6 +6,9 @@
 					<div class="panel-title">Login</div>
 				</div>
 				<div class="panel-body">
+					<% flash.each do |name, msg| %>
+						<%= content_tag :div, msg, class: "alert #{name == 'error' ? 'alert-danger' : 'alert-info'}" %>
+					<% end %>
 					<%= form_for :user, url: sessions_path do |f| %>
 					<%= f.email_field :email, placeholder: "Email", class: "form-control" %><br>
 					<%= f.password_field :password, placeholder: "Password", class: "form-control" %>

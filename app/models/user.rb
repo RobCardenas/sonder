@@ -2,6 +2,21 @@ class User < ActiveRecord::Base
 	has_many :stories, dependent: :destroy
 	has_secure_password
 
+	validates :password, length: { minimum: 6 }, on: :create, confirmation: true
+	
+	validates :username,
+	presence: true,
+	uniqueness: true,
+	length: {minimum: 4}
+
+  validates :email,
+  presence: true,
+  uniqueness: true,
+  format: {
+    with: /@/,
+    message: "not a valid format"
+  }
+
 	has_attached_file :avatar,
 	                 	:styles => { :medium => "200x200#", :thumb => "100x100#" },
 	                 	:path => "avatars/:id/:style/avatar.:extension",
@@ -14,7 +29,7 @@ class User < ActiveRecord::Base
     { :bucket => ENV['S3_BUCKET'], :access_key_id => ENV['S3_PUBLIC_KEY'], :secret_access_key => ENV['S3_SECRET'] }
   end
 
-	validates_attachment :avatar, :presence => true,
+	validates_attachment :avatar,
 	                     :content_type => { :content_type => ["image/jpeg", "image/jpg", "image/gif", "image/png"] },
 	                     :size => { :in => 0..10000.kilobytes }
 end
