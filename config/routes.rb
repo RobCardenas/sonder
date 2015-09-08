@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: "landing#index"
+  root to: "landing#landing"
 
   # User Routes
   get "/signup", to: "users#new"

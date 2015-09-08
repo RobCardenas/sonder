@@ -18,10 +18,11 @@
   </div>
   </div>
   <div class="panel-footer">
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-default' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                stories_path, :class => 'btn btn-danger' %>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-default' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                stories_path, :class => 'btn btn-danger' %> &nbsp;
+      *Images of 1000px or wider work best.
   </div>
 <% end %>
   </div>

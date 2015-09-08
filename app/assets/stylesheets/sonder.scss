@@ -1,10 +1,23 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,500,700);
+
 body {
-	background-color: #fff;
+	background-color: #eee;
+	font-family: "Ubuntu", sans-serif;
+}
+
+h1 {
+	font-weight: 700;
 }
 
 p {
 	color: #333;
 }
+
+a {
+	color: #333;
+}
+
+/*====== LANDING PAGE ======*/
 
 .bg-image {
 	background-color: #333;
@@ -25,12 +38,46 @@ p {
 	text-align: justify;
 }
 
+.btn-transparent {
+	background-color: transparent;
+	border: 2px solid #fff;
+	border-radius: 0;
+}
+
+a .btn-transparent:hover {
+	color: #666;
+}
+
 /*====== NAVBAR ======*/
 
-.navbar-default {
-    background-color: transparent;
-    border-color: transparent;
+.navbar-inverse {
+  background-color: transparent;
+  border-color: transparent;
 }
+
+.navbar-inverse img {
+	height: 50px;
+}
+
+.navbar-default {
+	background-color: #fff;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+.navbar-default img {
+	height: 30px;
+}
+
+.navbar-brand {
+	padding-top: 10px;
+}
+
+.navbar-avatar {
+	border-radius: 5px;
+	height: 30px;
+}
+
 
 /*====== JUMBOTRON(S) ======*/
 
@@ -52,7 +99,7 @@ p {
 /*====== INDEX PAGE ======*/
 
 .white {
-	background-color: #fff;
+	background-color: #eee;
 }
 
 .story-cover {
@@ -79,4 +126,28 @@ p {
 
 .user-stories {
 	margin-top: 40px;
+}
+
+.avatar {
+	border: 5px solid #fff;
+	border-radius: 5px;
+}
+
+/*====== FOOTER ======*/
+
+footer {
+  background-color: #fff;
+  margin: 80px 0 0 0;
+  padding: 30px;
+}
+
+ul.social-icons li {
+	list-style: none;
+	display: inline;
+	padding: 5px;
+}
+
+.social-icons img {
+	width: 30px;
+	border-radius: 50%;
 }

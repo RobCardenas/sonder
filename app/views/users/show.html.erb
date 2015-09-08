@@ -1,6 +1,6 @@
 <div class="jumbotron jumbotron-custom">
 	<div class="text-center">
-		<%= image_tag @user.avatar.url(:medium), class: "img-responsive img-circle" %>
+		<%= image_tag @user.avatar.url(:medium), class: "img-responsive avatar" %>
 				<h3>Howdy <%= current_user.username.titleize %></h3>
 
 		<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-default btn-xs" %>
@@ -13,7 +13,7 @@
 				<% current_user.stories.each do |story| %>
 				<div class="col-md-4">
 				<%= link_to image_tag(story.pictures.first.image(:medium).to_s, class: "img-responsive"), story_path(story) %>
-				<%= link_to story.name, story_path(story) %><br>
+				<%= link_to story.name.titleize, story_path(story) %><br>
 			</div>
 			<% end %>
 		</div>
