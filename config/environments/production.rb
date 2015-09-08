@@ -15,7 +15,6 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
 
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-  config.serve_static_assets = true
   config.assets.precompile += %w( bx_loader.gif controls.png )
   
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
