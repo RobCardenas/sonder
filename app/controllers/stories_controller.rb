@@ -71,15 +71,14 @@ class StoriesController < ApplicationController
       format.html { render action: "edit" }
       redirect_to profile_path
     end
-    end
   end
 
   def destroy
     story = Story.find(params[:id])
     if current_user.stories.include? story
       story.destroy
-      redirect_to profile_path
       respond_to do |format|
+        format.html {redirect_to profile_path}
         format.json {head :no_content}
       end
     else
@@ -92,4 +91,5 @@ class StoriesController < ApplicationController
     def story_params
       params.require(:story).permit(:name, :description, :pictures)
     end
-# end
+
+end

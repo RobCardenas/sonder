@@ -10,13 +10,14 @@
 <body>
 
 <% if current_page?(root_path) %>
-<%= render "partials/nav" %>
+	<%= render "partials/nav" %>
 <% else %>
-<%= render "partials/white_nav" %>
+	<%= render "partials/white_nav" %>
 <% end %>
 
 <%= yield %>
 
 <%= render "partials/footer" unless @disable_footer %>
+
 </body>
 </html>

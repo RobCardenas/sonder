@@ -1,13 +1,19 @@
-<div class="class">
+<div class="container">
 	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
-			<h2>Update Your Profile</h2>
-			<%= form_for @user, method: :patch do |f| %>
-			  <%= f.text_field :username, class: "form-control", placeholder: "Username" %><br>
-				<%= f.email_field :email, class: "form-control", :placeholder => "Email" %><br>
-			  <%= f.file_field :avatar %><br>
-			  <%= f.submit "Save Changes", class: "btn btn-primary" %>
-			<% end %>
+		<div class="col-md-6 col-md-offset-3 welcome">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="panel-title">Edit Your Profile</div>
+				</div>
+				<div class="panel-body">
+					<%= form_for @user, method: :patch do |f| %>
+					  <%= f.text_field :username, class: "form-control", placeholder: "Username" %><br>
+						<%= f.email_field :email, class: "form-control", :placeholder => "Email" %><br>
+					  <%= f.file_field :avatar %><br>
+					  <%= f.submit "Save Changes", class: "btn btn-primary" %>
+					<% end %>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

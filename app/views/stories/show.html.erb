@@ -26,7 +26,7 @@
       <p><%= @story.description %></p>
       <% if current_user && current_user.stories.include?(@story) %>
       <%= link_to "Edit Story", edit_story_path(@story), class: "btn btn-default btn-xs"  %>
-      <%= link_to 'Delete Story', story_path(@story), :method => 'delete', :confirm => 'Are you sure?', class: "btn btn-danger btn-xs" %>
+      <%= link_to 'Delete Story', story_path(@story), :method => 'delete', :data => {:confirm => 'Are you sure?'}, class: "btn btn-danger btn-xs" %>
       <% end %>
     </div>
   </div>

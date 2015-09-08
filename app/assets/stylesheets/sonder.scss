@@ -85,6 +85,7 @@ a .btn-transparent:hover {
 	background-image: image-url("kids-dusk.jpg");
 	background-size: cover;
 	margin: 0;
+	height: 400px;
 }
 
 .jumbotron img {
@@ -97,10 +98,6 @@ a .btn-transparent:hover {
 }
 
 /*====== INDEX PAGE ======*/
-
-.white {
-	background-color: #eee;
-}
 
 .story-cover {
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12),
@@ -128,7 +125,7 @@ a .btn-transparent:hover {
 }
 
 .bx-next {
-    right: 10px;
+    right: 20px;
     background: image-url('controls.png') no-repeat -43px -32px !important;
 }
 /*====== PROFILE PAGE ======*/
@@ -159,4 +156,47 @@ ul.social-icons li {
 .social-icons img {
 	width: 30px;
 	border-radius: 50%;
+}
+
+/*====== MEDIA QUERIES ======*/
+
+/* Landscape phones and down */
+@media (min-width: 480px) { 
+	.jumbotron {
+		height: 340px;
+	}
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+	.jumbotron {
+		height: 260px;
+	}
+	.avatar {
+		height: 120px;
+	}
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+	.jumbotron {
+		height: 300px;
+	}
+	.avatar {
+		height: 140px;
+	}
+}
+
+/* Large desktop */
+@media (min-width: 980px) and (max-width: 1190px) {
+	.avatar {
+		height: 160px;
+	}
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+	.avatar {
+		height: 180px;
+	}
 }
