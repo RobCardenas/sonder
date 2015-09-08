@@ -32,6 +32,7 @@ class StoriesController < ApplicationController
         format.html { redirect_to story }
         format.json { render json: story }
       else
+        flash[:error] = story.errors.full_messages.join(", ")
         format.html { render action: "new"}
         format.json { render json: @story.error}
       end

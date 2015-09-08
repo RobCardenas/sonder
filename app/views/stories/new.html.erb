@@ -4,12 +4,15 @@
     <div class="panel-title">Post Your Adventure</div>
   </div>
   <div class="panel-body">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert #{name == 'error' ? 'alert-danger' : 'alert-info'}" %>
+      <% end %>
     <%= form_for @story, :html => { class: 'form-horizontal', multipart: true } do |f| %>
   <div class="control-group">
       <%= f.text_field :name, placeholder: "Story Name", class: "form-control" %>
   </div>
   <br>
-  <div class="control-group">
+  <div class="control-group"> 
       <%= f.text_field :description, placeholder: "Description", class: "form-control" %>
   </div>
   <br>
