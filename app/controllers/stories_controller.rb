@@ -1,9 +1,9 @@
 class StoriesController < ApplicationController
   before_filter :authorize, except: [:index, :show]
   def index
-    @stories = Story.all
+    @stories = Story.where(draft: false)
     # render :index
-
+    # check if story is nil 
     respond_to do |format|
       format.html
       format.json { render json: @stories }
@@ -110,7 +110,11 @@ class StoriesController < ApplicationController
 
   private
     def story_params
-      params.require(:story).permit(:name, :description, :pictures )
+      if params[:draft]
+        return params.require(:story).permit(:name, :description, :pictures).merge(draft: true)
+      else
+        return params.require(:story).permit(:name, :description, :pictures).merge(draft: false)
+      end
     end
 
 end

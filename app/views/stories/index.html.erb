@@ -5,7 +5,7 @@
 	<div class="container user-stories">
 			<% @stories.each do |story| %>
 				<div class="col-md-4 col-sm-6 cover">
-					<%= link_to image_tag(story.pictures.first.image(:medium).to_s, class: "img-responsive story-cover"), story_path(story) %>
+					<%= link_to image_tag(story.pictures.first.image(:medium).to_s, class: "img-responsive story-cover bx-viewport"), story_path(story) %><br>
 					<%= link_to story.name.titleize, story_path(story) %>
 				</div>
 			<% end %>

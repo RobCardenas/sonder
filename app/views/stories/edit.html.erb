@@ -9,12 +9,17 @@
 					<%= form_for @story do |f| %>
 					<%= f.text_field :name, placeholder: "Story Name", class: "form-control" %><br>
 					<%= f.text_field :description, placeholder: "Description", class: "form-control" %>
+					<!-- put label -->
 				</div>
 				<div class="panel-footer">
-					<%= f.submit "Submit", class: "btn btn-default" %>
+					<%= f.submit "Save Draft", name: :draft, class: "btn btn-default" %>
+					<%= f.submit "Publish", class: "btn btn-default" %>
+
 					<% end %>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+
