@@ -2,26 +2,15 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1 slider-pg">
       <input type="hidden" id="storyID" value="<%= @story.id %>">
-      <ul class="bxslider">
+      <div class="pageflip bx-viewport">
         <% unless @pictures.empty? %>
         <% @pictures.each do |pic| %>
-        <li id="picture_<%= pic.id %>", class: "img-responsive">
+        <div class="page" style="background: url('picture_<%= pic.id %>')", class: "img-responsive">
           <%= image_tag pic.image.url(:large), class: "img-responsive" %>
-          <div class="caption">
-            <p style="text-align: center;">
-              <% if current_user && current_user.stories.include?(@story) %>
-              <%= link_to "Edit picture", picture_path(pic) %>
-              <%= link_to "Delete picture", pic,
-              :data => { :confirm => "Are you sure?" },
-              :method => :delete
-              %>
-              <% end %>
-            </p>
-          </div>
-        </li>
+        </div>
         <% end %>
         <% end %>
-      </ul>
+      </div>
       <h1><%= @story.name.titleize %></h1>
       <p><%= @story.description %></p>
       <% if current_user && current_user.stories.include?(@story) %>
