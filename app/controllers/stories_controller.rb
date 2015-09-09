@@ -29,10 +29,11 @@ class StoriesController < ApplicationController
            params[:images].each { |image| 
            story.pictures.create(image: image)}
         end
-        format.html { redirect_to story }
+        # format.html { redirect_to stories_draft_path(story.id) }
+        format.html { redirect_to edit_story_path(story.id) }
         format.json { render json: story }
       else
-        flash[:error] = story.errors.full_messages.join(", ")
+        flash[:error] = "At least one image must be uploaded!"
         format.html { render action: "new"}
         format.json { render json: @story.error}
       end
@@ -63,11 +64,13 @@ class StoriesController < ApplicationController
       story.update_attributes(story_params)
       if params[:images]
         params[:images].each { |image|
-          @story.pictures.create(image: image)}
-      redirect_to story_path(story.id)
+        story.pictures.create(image: image)}
+      # redirect_to story_path(story.id)
     end
-      # format.html { redirect_to story }
-      # format.json { head :no_content }
+      respond_to do |format|
+      format.html { redirect_to story_path(story.id) }
+      format.json { head :no_content }
+    end
     else
       format.html { render action: "edit" }
       redirect_to profile_path
@@ -88,9 +91,26 @@ class StoriesController < ApplicationController
     end
   end
 
+  # def draft
+  #   story = Story.find(params[:id])
+  #   if current_user.stories.include? story
+  #     story.update_attributes(story_params)
+  #     if params[:images]
+  #       params[:images].each { |image|
+  #       story.pictures.create(image: image)}
+  #     redirect_to story_path(story.id)
+  #   end
+  #     # format.html { redirect_to story }
+  #     # format.json { head :no_content }
+  #   else
+  #     format.html { render action: "draft" }
+  #     redirect_to profile_path
+  #   end
+  # end
+
   private
     def story_params
-      params.require(:story).permit(:name, :description, :pictures)
+      params.require(:story).permit(:name, :description, :pictures )
     end
 
 end

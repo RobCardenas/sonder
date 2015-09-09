@@ -15,3 +15,19 @@ $(document).ready(function(){
   $('.bxslider').bxSlider();
 });
 
+// $('#story-form').validate({
+//     debug: true,
+//     rules: {
+//         name: "required", // should be: "user[username]"
+//         description: "required",
+//         files: "required"
+//     },
+//     messages: {
+//         user_username: "Please specify your name", // should be: "user[username]"
+//         user_email: { // should be: "user[email]"
+//             required: "We need your email address to contact you",
+//             email: "Your email address must be in the format of name@domain.com"
+//         }
+//     }
+// });
+

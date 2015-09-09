@@ -5,17 +5,17 @@ class User < ActiveRecord::Base
 	validates :password, length: { minimum: 6 }, on: :create, confirmation: true
 	
 	validates :username,
-	presence: true,
-	uniqueness: true,
-	length: {minimum: 4}
+						presence: true,
+						uniqueness: true,
+						length: {minimum: 4}
 
   validates :email,
-  presence: true,
-  uniqueness: true,
-  format: {
-    with: /@/,
-    message: "not a valid format"
-  }
+					  presence: true,
+					  uniqueness: true,
+					  format: {
+					    with: /@/,
+					    message: "not a valid format"
+					  }
 
 	has_attached_file :avatar,
 	                 	:styles => { :medium => "200x200#", :thumb => "100x100#" },

@@ -16,6 +16,11 @@ Rails.application.routes.draw do
   # Stories Routes
   resources :stories
   delete "/stories", to: "stories#destroy"
+  # get "/profile", to: "users#show"
+  # match "/stories/:id/draft" => "stories#draft", :as => :stories_draft, via: :all # stories_draft(story.id)
+  get "/stories/:id/draft", to: "stories#draft", as: :stories_draft
+  put "/stories/:id/draft/pictures", to: "stories#draft", as: :stories_draft_pictures
+  # Pictures
   resources :pictures
 
 end
