@@ -4,20 +4,18 @@
     <div class="panel-title">Post Your Adventure</div>
   </div>
   <div class="panel-body">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, class: "alert #{name == 'error' ? 'alert-danger' : 'alert-info'}" %>
-      <% end %>
-    <%= form_for @story, :html => { class: 'form-horizontal', multipart: true } do |f| %>
+
+    <%= form_for @story, id: "story-form", :url => stories_path, :html => { :multipart => true } do |f| %>
   <div class="control-group">
-      <%= f.text_field :name, placeholder: "Story Name", class: "form-control" %>
+      <%= f.text_field :name, placeholder: "Story Name", class: "form-control", required: true %>
   </div>
   <br>
   <div class="control-group"> 
-      <%= f.text_field :description, placeholder: "Description", class: "form-control" %>
+      <%= f.text_field :description, placeholder: "Description", class: "form-control", required: true %>
   </div>
   <br>
   <div class="control-group">
-      <%= file_field_tag "images[]", type: :file, multiple: true %>
+      <%= file_field_tag "images[]", type: :file, multiple: true, required: true %>
   </div>
   </div>
   <div class="panel-footer">

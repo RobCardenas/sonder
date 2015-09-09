@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 welcome">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">Edit Story</div>
+        </div>
+        <div class="panel-body">
+          <%= form_for :story do |f| %>
+          <%= f.text_field :name, placeholder: "Story Name", class: "form-control" %><br>
+          <%= f.text_field :description, placeholder: "Description", class: "form-control" %>
+        </div>
+        <div class="panel-footer">
+          <%= f.submit "Submit", class: "btn btn-default" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

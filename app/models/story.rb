@@ -3,11 +3,9 @@ class Story < ActiveRecord::Base
 	belongs_to :user
 	has_many :pictures, dependent: :destroy
 
- #  validates :name,
- #    presence: true,
- #    length: {maximum: 255}
+	validates :name, :description, presence: true
 
-	# validates :image,
-	# 	presence: true
+	# validates :pictures,
+	# 					presence: true
 	
 end
