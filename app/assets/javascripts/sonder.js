@@ -15,6 +15,11 @@ $(document).ready(function(){
   $('.bxslider').bxSlider();
 });
 
+$(document).ready(function(){
+  var pageflip = new RocketPageFlip('.pageflip');
+
+});
+
 // $('#story-form').validate({
 //     debug: true,
 //     rules: {
