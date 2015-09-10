@@ -51,8 +51,13 @@ class StoriesController < ApplicationController
 
   def edit
     @story = Story.find(params[:id])
+    @pictures = @story.pictures
+    respond_to do |format|
+      format.html
+      format.json { render json: @picture }
+    end
     if current_user.stories.include? @story
-      render :edit
+      # render :edit
     else
       redirect_to profile_path
     end
@@ -91,22 +96,9 @@ class StoriesController < ApplicationController
     end
   end
 
-  # def draft
-  #   story = Story.find(params[:id])
-  #   if current_user.stories.include? story
-  #     story.update_attributes(story_params)
-  #     if params[:images]
-  #       params[:images].each { |image|
-  #       story.pictures.create(image: image)}
-  #     redirect_to story_path(story.id)
-  #   end
-  #     # format.html { redirect_to story }
-  #     # format.json { head :no_content }
-  #   else
-  #     format.html { render action: "draft" }
-  #     redirect_to profile_path
-  #   end
-  # end
+  def draft
+    render :draft
+  end
 
   private
     def story_params
