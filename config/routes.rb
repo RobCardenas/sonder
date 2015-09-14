@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   # Stories Routes
   resources :stories
+  # CJ: I think this is repetitive, since you have a `delete` route
+  # for `stories` when you use `resources :stories`
   delete "/stories", to: "stories#destroy"
   # get "/profile", to: "users#show"
   # match "/stories/:id/draft" => "stories#draft", :as => :stories_draft, via: :all # stories_draft(story.id)

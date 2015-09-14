@@ -32,6 +32,8 @@ class UsersController < ApplicationController
 
   def update
   	user = User.find(params[:id])
+    # CJ: nice check for `current_user` here -- use the same logic
+    # in your `edit` action as well
   	if user == current_user
   		user.update_attributes(user_params)
   		redirect_to profile_path
@@ -42,6 +44,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    # CJ: you can just use `@user = current_user` here
     @user = User.find(session[:user_id])
   	render :show
   end

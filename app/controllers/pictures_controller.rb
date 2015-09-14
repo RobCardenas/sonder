@@ -1,3 +1,7 @@
+# CJ: controller logic looks great! make sure you only allow logged in users
+# to create pictures; make sure a user can only `edit`, `update`, or `destroy`
+# pictures that belong to them
+
 class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json

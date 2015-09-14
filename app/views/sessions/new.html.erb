@@ -6,6 +6,7 @@
 					<div class="panel-title">Login</div>
 				</div>
 				<div class="panel-body">
+					<!-- CJ: if you're going to put flash messages in the form like this, make a partial to DRY up your code since you're using this in multiple forms -->
 					<% flash.each do |name, msg| %>
 						<%= content_tag :div, msg, class: "alert #{name == 'error' ? 'alert-danger' : 'alert-info'}" %>
 					<% end %>

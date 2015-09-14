@@ -1,6 +1,7 @@
 class StoriesController < ApplicationController
   before_filter :authorize, except: [:index, :show]
   def index
+    # CJ: awesome :)
     @stories = Story.where(draft: false)
     # render :index
     # check if story is nil 
@@ -20,6 +21,9 @@ class StoriesController < ApplicationController
 
   def create
     # @story = Story.new(story_params)
+    
+    # CJ: great use of `current_user` -- make sure to redirect
+    # if there is no one logged in, otherwise this will break
     story = current_user.stories.create(story_params)
     # redirect_to story_path(story)
 
