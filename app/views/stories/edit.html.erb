@@ -10,8 +10,18 @@
 					<%= f.text_field :name, placeholder: "Story Name", class: "form-control" %><br>
 					<%= f.text_field :description, placeholder: "Description", class: "form-control" %>
 					<!-- put label -->
+
+					<!-- CJ: this isn't super typical for rails forms, but I would iterate through all the story's pictures in the form so the user can add descriptions -->
+					<!-- CJ: something like this - you may need to play around with the syntax to get the params exactly right -->
+					<%= fields_for @story.pictures %>
+						<% @story.pictures.each do |picture| %>
+							<%= text_field_tag :description %>
+						<% end %>
+					<% end %>
+
 				</div>
 				<div class="panel-footer">
+					<!-- CJ: nice job getting draft to save! -->
 					<%= f.submit "Save Draft", name: :draft, class: "btn btn-default" %>
 					<%= f.submit "Publish", class: "btn btn-default" %>
 
